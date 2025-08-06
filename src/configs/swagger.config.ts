@@ -6,6 +6,7 @@ export const swaggerConfig = (app: INestApplication) => {
         .setTitle('MATCHERS APIs')
         .setDescription('MATCHERS APIs description')
         .setVersion('1.0')
+        .addBearerAuth()
         .build();
 
     const document = SwaggerModule.createDocument(app, config);

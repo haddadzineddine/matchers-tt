@@ -21,8 +21,8 @@ export class CompanyController {
     @ApiOperation({ summary: 'Get all companies' })
     @ApiResponse({ status: 200, description: 'List of all companies.' })
     @ApiResponse({ status: 401, description: 'Unauthorized. JWT token is missing or invalid.' })
-    // @ApiBearerAuth()
-    // @UseGuards(JwtAuthGuard)
+    @ApiBearerAuth()
+    @UseGuards(JwtAuthGuard)
     @Get()
     async getAllCompanies() {
         return this.companyService.findAll();

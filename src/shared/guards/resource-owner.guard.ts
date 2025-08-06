@@ -14,6 +14,8 @@ export class ResourceOwnerGuard implements CanActivate {
       [context.getHandler(), context.getClass()],
     );
 
+    console.log(config);
+
     // If no configuration is found, allow access (guard is not applied)
     if (!config) {
       return true;
