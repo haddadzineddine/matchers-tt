@@ -26,13 +26,13 @@ export class FormationController {
         return this.formationService.findAll();
     }
 
+    @Get('/contact/:uuid')
     @ApiBearerAuth()
     @UseGuards(JwtAuthGuard, ResourceOwnerGuard)
     @ResourceOwner({
         paramName: 'uuid',
         errorMessage: 'You are not allowed to access formations for this contact.'
     })
-    @Get('/contact/:uuid')
     @ApiOperation({ summary: 'Get all formations by contact' })
     @ApiResponse({ status: 200, description: 'List of all formations by contact.' })
     @ApiResponse({ status: 401, description: 'Unauthorized. JWT token is missing or invalid.' })
